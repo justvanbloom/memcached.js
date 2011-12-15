@@ -7,7 +7,7 @@ var profiler = require('v8-profiler');
 global.memcachedParams = { 
 	verboseLevel: 0 // between 0 and 3;
 }
-var maxCacheSize = 64; // Megabytes
+var maxCacheSize = 2048; // Megabytes
 var memcached = new mc.Memcached(maxCacheSize);
 
 var server = net.createServer(function (socket) {
@@ -47,7 +47,3 @@ var server = net.createServer(function (socket) {
 });
 
 server.listen(11211, "127.0.0.1");
-
-//process.on('uncaughtException', function (err) { console.log('Caught exception: ' + err); });
-
-//setTimeout(function () { console.log('This will still run.'); }, 500);
